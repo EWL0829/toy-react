@@ -20,6 +20,7 @@ class ElementWrapper {
             }
         }
     }
+
     appendChild(component) {
         let range = document.createRange();
         range.setStart(this.root, this.root.childNodes.length); // offset设置为0 表示从parentElement的第一个children到最后一个children
@@ -28,6 +29,7 @@ class ElementWrapper {
         range.setEnd(this.root, this.root.childNodes.length);
         component[RENDER_TO_DOM](range);
     }
+
     [RENDER_TO_DOM](range) {
         range.deleteContents();
         range.insertNode(this.root);
